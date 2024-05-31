@@ -22,7 +22,7 @@ public class Student {
 	private String lastName;
 
 	@Column(name = "email")
-	private String email;
+	public String email;
 
 	public Student(String firstName, String lastName, String email) {
 		super();

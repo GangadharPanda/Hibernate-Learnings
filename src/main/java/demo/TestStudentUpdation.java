@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 import entity.Student;
 
-public class TestStudentDeletion {
+public class TestStudentUpdation {
 
 	public static void main(String[] args) {
 
@@ -22,24 +22,27 @@ public class TestStudentDeletion {
 		try {
 
 			// fetch the data from table
-			List<Student> students = session.createQuery("from Student ", Student.class)
-					.list();
+			List<Student> students = session.createQuery("from Student ", Student.class).list();
 
 			if (!students.isEmpty()) {
 				Student student = students.get(0);
 
-				System.out.println("Deleting student " + student);
+				System.out.println("Updating student " + student);
 
-				//session.delete(student);
-				
-				//Till the time we don't call executeUpdate() , it won't delete the data
-				session.createQuery("delete from Student s where s.id = 2").executeUpdate();
-				
+				// NOTE: Just update the object and commit the transaction
 
-				System.out.println("Deleted Successfully ");
+				student.email = "mynewEmail@gmail.com";
+
+				System.out.println("Updated Successfully ");
 
 			} else {
-				System.out.println("No data to delete ");
+				System.out.println("No data to update ");
+			}
+			// Fetch it again
+			students = session.createQuery("from Student ", Student.class).list();
+
+			for (Student student : students) {
+				System.out.println(student);
 			}
 
 			// commit the transaction

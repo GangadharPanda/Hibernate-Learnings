@@ -9,7 +9,7 @@ import org.hibernate.cfg.Configuration;
 
 import entity.Student;
 
-public class TestStudentEntity {
+public class TestStudentInsertion {
 
 	public static void main(String[] args) {
 
@@ -40,6 +40,8 @@ public class TestStudentEntity {
 		}
 
 		try {
+
+			// Fetch data from the table
 			session = factory.getCurrentSession();
 
 			// Start the Transaction
@@ -52,9 +54,6 @@ public class TestStudentEntity {
 			for (Student student : students) {
 				System.out.println(student.toString());
 			}
-			
-			// commit the transaction
-			txn.commit();
 
 		} catch (Exception e) {
 

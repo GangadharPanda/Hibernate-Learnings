@@ -1,22 +1,20 @@
 package mappings.one2one.demo;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import mappings.one2one.entity.unidirectional.Instructor;
-import mappings.one2one.entity.unidirectional.InstructorDetails;
+import mappings.one2one.entity.bidirectional.Instructor;
+import mappings.one2one.entity.bidirectional.InstructorDetails;
 
-public class UnidirectionalOne2OneFetchTest {
+public class BidirectionalOne2OneDeleteTest {
 	public static void main(String[] args) {
 
 		// Create Sessionfactory
-		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-unidirectional.xml")
+		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-bidirectional.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class).buildSessionFactory();
-		
+
 		// Get the session object
 		Session session = sfactory.getCurrentSession();
 
@@ -24,15 +22,13 @@ public class UnidirectionalOne2OneFetchTest {
 		try {
 			txn = session.beginTransaction();
 
-			List<Instructor> instructors = session.createQuery("from Instructor", Instructor.class).list();
+			InstructorDetails ins = session.get(InstructorDetails.class, 8);
+
+			session.delete(ins);// this did
 
 			txn.commit();
 
-			for (Instructor instructor : instructors) {
-				System.out.println(instructor);
-			}
-
-			System.out.println("Fetch Success !!");
+			System.out.println("Deleted  Success !!");
 
 		} catch (Exception e) {
 			if (txn != null) {

@@ -7,16 +7,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import mappings.one2one.entity.unidirectional.Instructor;
-import mappings.one2one.entity.unidirectional.InstructorDetails;
+import mappings.one2one.entity.bidirectional.Instructor;
+import mappings.one2one.entity.bidirectional.InstructorDetails;
 
-public class UnidirectionalOne2OneFetchTest {
+public class BidirectionalOne2OneFetchTest {
 	public static void main(String[] args) {
 
 		// Create Sessionfactory
-		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-unidirectional.xml")
+		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-bidirectional.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class).buildSessionFactory();
-		
+
 		// Get the session object
 		Session session = sfactory.getCurrentSession();
 
@@ -24,12 +24,13 @@ public class UnidirectionalOne2OneFetchTest {
 		try {
 			txn = session.beginTransaction();
 
-			List<Instructor> instructors = session.createQuery("from Instructor", Instructor.class).list();
+			List<InstructorDetails> instructorDetails = session
+					.createQuery("from InstructorDetails", InstructorDetails.class).list();
 
 			txn.commit();
 
-			for (Instructor instructor : instructors) {
-				System.out.println(instructor);
+			for (InstructorDetails instructor : instructorDetails) {
+				System.out.println(instructor.getInstructor());
 			}
 
 			System.out.println("Fetch Success !!");

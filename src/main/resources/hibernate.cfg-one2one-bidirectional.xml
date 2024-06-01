@@ -1,0 +1,25 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!-- JDBC Database connection settings -->
+        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/hb_one_2_one?useSSL=false</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">root</property>
+        
+        <!-- JDBC connection pool settings ... using built-in test pool -->
+        <property name="connection.pool_size">1</property>
+        
+        <!-- Echo the SQL to stdout -->
+        <property name="show_sql">true</property>
+        
+        <!-- Set the current session context -->
+        <property name="current_session_context_class">thread</property>
+        
+        <!-- Don't change anything related to table structure , just validate if it's according to mapping 
+        It will do all things but won't change table structure-->
+        <property name="hbm2ddl.auto">validate</property>
+    </session-factory>
+</hibernate-configuration>

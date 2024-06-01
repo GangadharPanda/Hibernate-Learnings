@@ -12,7 +12,7 @@ public class UnidirectionalOne2OneDeleteTest {
 	public static void main(String[] args) {
 
 		// Create Sessionfactory
-		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one.xml")
+		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-unidirectional.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class).buildSessionFactory();
 
 		// Get the session object

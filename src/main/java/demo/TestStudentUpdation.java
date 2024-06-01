@@ -31,7 +31,11 @@ public class TestStudentUpdation {
 
 				// NOTE: Just update the object and commit the transaction
 
-				student.email = "mynewEmail@gmail.com";
+				// student.email = "mynewEmail@gmail.com";
+
+				session.createQuery(
+						"update Student s set s.email = 'NEWEM@gmail.com' where s.email = 'mynewEmail@gmail.com'")
+						.executeUpdate();
 
 				System.out.println("Updated Successfully ");
 

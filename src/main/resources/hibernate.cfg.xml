@@ -10,7 +10,7 @@
         <property name="connection.password">root</property>
         
         <!-- JDBC connection pool settings ... using built-in test pool -->
-        <property name="connection.pool_size">1</property>
+        <property name="connection.pool_size">10</property>
         
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>

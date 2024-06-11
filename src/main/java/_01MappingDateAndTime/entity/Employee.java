@@ -1,4 +1,4 @@
-package MappingDateAndTime.entity;
+package _01MappingDateAndTime.entity;
 
 import java.util.Date;
 

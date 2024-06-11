@@ -1,4 +1,4 @@
-package MappingDateAndTime.demo;
+package _01MappingDateAndTime.demo;
 
 import java.util.Date;
 
@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import MappingDateAndTime.entity.Employee;
+import _01MappingDateAndTime.entity.Employee;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 

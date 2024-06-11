@@ -1,10 +1,10 @@
-package PreventingPersistanceOfSpecificProperties.demo;
+package _02PreventingPersistanceOfSpecificProperties.demo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import PreventingPersistanceOfSpecificProperties.entity.Teacher;
+import _02PreventingPersistanceOfSpecificProperties.entity.Teacher;
 
 public class TransientDemo {
 

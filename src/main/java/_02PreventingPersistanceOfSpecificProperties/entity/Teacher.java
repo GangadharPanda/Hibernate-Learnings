@@ -1,4 +1,4 @@
-package PreventingPersistanceOfSpecificProperties.entity;
+package _02PreventingPersistanceOfSpecificProperties.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

@@ -15,6 +15,9 @@
         <!-- Echo the SQL to stdout -->
         <property name="show_sql">true</property>
         
+         <!-- Fromat the SQL to stdout -->
+        <property name="format_sql">true</property>
+        
         <!-- Set the current session context -->
         <property name="current_session_context_class">thread</property>
         

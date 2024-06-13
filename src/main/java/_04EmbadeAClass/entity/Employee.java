@@ -55,20 +55,5 @@ public class Employee {
 			@AttributeOverride(name = "pin", column = @Column(name = "home_pin")) })
 	private Address homeAddress;
 	
-	/*Hibernate: 
-	    
-	    create table employee_with_office_address (
-	       id integer not null auto_increment,
-	        home_city varchar(255),
-	        home_pin varchar(255),
-	        home_state varchar(255),
-	        home_street varchar(255),
-	        name varchar(255),
-	        office_city varchar(255),
-	        office_pin varchar(255),
-	        office_state varchar(255),
-	        office_street varchar(255),
-	        primary key (id)
-	    ) engine=InnoDB
-	    */
+	
 }

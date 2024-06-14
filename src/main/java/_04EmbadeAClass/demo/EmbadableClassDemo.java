@@ -13,7 +13,7 @@ public class EmbadableClassDemo {
 
 		// Create SessionFactory
 
-		SessionFactory factory = new Configuration().configure("hibernate.cfg-date-time.xml")
+		SessionFactory factory = new Configuration().configure("hibernate.cfg-create.xml")
 				.addAnnotatedClass(Employee.class).buildSessionFactory();
 
 		// Create Session

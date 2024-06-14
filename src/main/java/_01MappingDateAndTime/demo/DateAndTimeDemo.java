@@ -14,7 +14,7 @@ public class DateAndTimeDemo {
 
 	public static void main(String[] args) {
 
-		SessionFactory factory = new Configuration().configure("hibernate.cfg-date-time.xml").addAnnotatedClass(Employee.class)
+		SessionFactory factory = new Configuration().configure("hibernate.cfg-create.xml").addAnnotatedClass(Employee.class)
 				.buildSessionFactory();
 
 		Session session = factory.openSession();

@@ -12,7 +12,7 @@ public class TransientDemo {
 
 		// Create SessionFactory Object
 
-		SessionFactory factory = new Configuration().configure("hibernate.cfg-date-time.xml")
+		SessionFactory factory = new Configuration().configure("hibernate.cfg-create.xml")
 				.addAnnotatedClass(Teacher.class).buildSessionFactory();
 
 		// Create session Object

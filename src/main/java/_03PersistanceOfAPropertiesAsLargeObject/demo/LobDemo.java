@@ -12,7 +12,7 @@ public class LobDemo {
 
 		// Create SessionFactory Object
 
-		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg-date-time.xml")
+		SessionFactory sessionFactory = new Configuration().configure("hibernate.cfg-create.xml")
 				.addAnnotatedClass(OldEmployee.class).buildSessionFactory();
 
 		// Create session object from sessionfactory Object

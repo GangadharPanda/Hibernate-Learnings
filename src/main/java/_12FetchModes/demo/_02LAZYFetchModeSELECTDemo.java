@@ -4,16 +4,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import _12FetchModes.entity.LAZYEmployeeFetchModeSELECT;
+import _12FetchModes.entity._02LAZYEmployeeFetchModeSELECT;
 
-public class LAZYFetchModeSELECTDemo {
+public class _02LAZYFetchModeSELECTDemo {
 
 	public static void main(String[] args) {
 
 		// Create SessionFactory
 
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-				.addAnnotatedClass(LAZYEmployeeFetchModeSELECT.class).buildSessionFactory();
+				.addAnnotatedClass(_02LAZYEmployeeFetchModeSELECT.class).buildSessionFactory();
 
 		// Create Session
 
@@ -36,7 +36,7 @@ public class LAZYFetchModeSELECTDemo {
 		 * obvious reasons
 		 */
 
-		LAZYEmployeeFetchModeSELECT lazyOne = session.get(LAZYEmployeeFetchModeSELECT.class, 1);
+		_02LAZYEmployeeFetchModeSELECT lazyOne = session.get(_02LAZYEmployeeFetchModeSELECT.class, 1);
 
 //		for (Address address : lazyOne.getListOfOffices()) {
 //			System.out.println(address);

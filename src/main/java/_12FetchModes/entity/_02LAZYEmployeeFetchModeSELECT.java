@@ -29,7 +29,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Entity
 @Table(name = "lazy_employee_with_office_address")
-public class LAZYEmployeeFetchModeSELECT {
+public class _02LAZYEmployeeFetchModeSELECT {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

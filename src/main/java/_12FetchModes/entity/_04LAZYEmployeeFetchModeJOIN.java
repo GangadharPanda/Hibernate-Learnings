@@ -28,8 +28,8 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @Entity
-@Table(name = "eager_employee_with_office_address")
-public class EAGEREmployeeFetchModeSELECT {
+@Table(name = "lazy_employee_with_office_address")
+public class _04LAZYEmployeeFetchModeJOIN {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,10 +39,9 @@ public class EAGEREmployeeFetchModeSELECT {
 	@Column
 	private String name;
 
-	@ElementCollection(fetch = FetchType.EAGER)
-	@Fetch(FetchMode.SELECT)
-	// When FetchMode is SELECT , it respects the fetchType -EAGER : 2 select Queries
-	// When FetchMode is SELECT , it respects the fetchType -LAZY : 1 select Queries
-	@JoinTable(name = "emp_address_eager", joinColumns = @JoinColumn(name = "emp_id"))
+	@ElementCollection(fetch = FetchType.LAZY)
+	@Fetch(FetchMode.JOIN)
+	// When FetchMode is JOIN , it will always be EAGER : 1 JOIN Queries
+	@JoinTable(name = "emp_address_lazy", joinColumns = @JoinColumn(name = "emp_id"))
 	private List<Address> listOfOffices;
 }

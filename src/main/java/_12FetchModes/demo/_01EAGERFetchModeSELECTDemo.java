@@ -5,16 +5,16 @@ import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
 import _04EmbadeAClass.entity.Address;
-import _12FetchModes.entity.EAGEREmployeeFetchModeSELECT;
+import _12FetchModes.entity._01EAGEREmployeeFetchModeSELECT;
 
-public class EAGERFetchModeSELECTDemo {
+public class _01EAGERFetchModeSELECTDemo {
 
 	public static void main(String[] args) {
 
 		// Create SessionFactory
 
 		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml")
-				.addAnnotatedClass(EAGEREmployeeFetchModeSELECT.class).buildSessionFactory();
+				.addAnnotatedClass(_01EAGEREmployeeFetchModeSELECT.class).buildSessionFactory();
 
 		// Create Session
 
@@ -41,7 +41,7 @@ public class EAGERFetchModeSELECTDemo {
 		 * 
 		 */
 
-		EAGEREmployeeFetchModeSELECT employeeHaveCollectionOfAddress = session.get(EAGEREmployeeFetchModeSELECT.class,
+		_01EAGEREmployeeFetchModeSELECT employeeHaveCollectionOfAddress = session.get(_01EAGEREmployeeFetchModeSELECT.class,
 				1);
 
 		session.getTransaction().commit();

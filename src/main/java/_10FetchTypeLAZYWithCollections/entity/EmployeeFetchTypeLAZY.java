@@ -1,9 +1,6 @@
-package _09PersistingACollectionOfObjectWithPK.entity;
+package _10FetchTypeLAZYWithCollections.entity;
 
 import java.util.List;
-
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.GenericGenerator;
 
 import _04EmbadeAClass.entity.Address;
 import jakarta.persistence.Column;
@@ -28,7 +25,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Entity
 @Table(name = "employee_with_office_address")
-public class EmployeeHavePrimaryKeyForAddress {
+public class EmployeeFetchTypeLAZY {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,9 +37,5 @@ public class EmployeeHavePrimaryKeyForAddress {
 
 	@ElementCollection
 	@JoinTable(name = "emp_address", joinColumns = @JoinColumn(name = "emp_id"))
-	
-	@GenericGenerator(name = "MyGenerator", strategy = "increment")
-	@CollectionId(column = @Column(name = "address_id", columnDefinition = "INT"))
-	
 	private List<Address> listOfOffices;
 }

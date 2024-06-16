@@ -6,7 +6,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import _09PersistingACollectionOfObjectWithPK.entity.Address;
+import _04EmbadeAClass.entity.Address;
 import _09PersistingACollectionOfObjectWithPK.entity.EmployeeHavePrimaryKeyForAddress;
 
 

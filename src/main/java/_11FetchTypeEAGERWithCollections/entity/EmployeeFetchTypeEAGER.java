@@ -1,14 +1,12 @@
-package _09PersistingACollectionOfObjectWithPK.entity;
+package _11FetchTypeEAGERWithCollections.entity;
 
 import java.util.List;
-
-import org.hibernate.annotations.CollectionId;
-import org.hibernate.annotations.GenericGenerator;
 
 import _04EmbadeAClass.entity.Address;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -28,7 +26,7 @@ import lombok.ToString;
 @AllArgsConstructor
 @Entity
 @Table(name = "employee_with_office_address")
-public class EmployeeHavePrimaryKeyForAddress {
+public class EmployeeFetchTypeEAGER {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -38,11 +36,7 @@ public class EmployeeHavePrimaryKeyForAddress {
 	@Column
 	private String name;
 
-	@ElementCollection
+	@ElementCollection(fetch = FetchType.EAGER)
 	@JoinTable(name = "emp_address", joinColumns = @JoinColumn(name = "emp_id"))
-	
-	@GenericGenerator(name = "MyGenerator", strategy = "increment")
-	@CollectionId(column = @Column(name = "address_id", columnDefinition = "INT"))
-	
 	private List<Address> listOfOffices;
 }

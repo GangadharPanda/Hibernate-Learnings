@@ -2,6 +2,7 @@ package _08PersistingACollectionOfObjectCustomFKPKName.entity;
 
 import java.util.List;
 
+import _04EmbadeAClass.entity.Address;
 import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;

@@ -1,7 +1,8 @@
-package _14one2many.uni.entity;
+package _14one2many.bi.entity;
 
 import java.util.Date;
 
+import _14one2many.uni.entity.Employee;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,7 +15,6 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -24,7 +24,6 @@ import lombok.ToString;
 @ToString
 @Setter
 @Getter
-@NoArgsConstructor
 public class Car {
 	
 	@Id

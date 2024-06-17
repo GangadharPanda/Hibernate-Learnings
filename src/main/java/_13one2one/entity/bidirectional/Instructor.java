@@ -1,4 +1,4 @@
-package mappings.one2one.entity.bidirectional;
+package _13one2one.entity.bidirectional;
 
 import org.hibernate.annotations.Cascade;
 import org.hibernate.annotations.CascadeType;

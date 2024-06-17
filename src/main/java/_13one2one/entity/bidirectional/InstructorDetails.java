@@ -1,4 +1,4 @@
-package mappings.one2one.entity.bidirectional;
+package _13one2one.entity.bidirectional;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;

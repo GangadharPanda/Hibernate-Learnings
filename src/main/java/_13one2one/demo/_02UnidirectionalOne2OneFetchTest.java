@@ -1,4 +1,4 @@
-package mappings.one2one.demo;
+package _13one2one.demo;
 
 import java.util.List;
 
@@ -7,8 +7,8 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import mappings.one2one.entity.unidirectional.Instructor;
-import mappings.one2one.entity.unidirectional.InstructorDetails;
+import _13one2one.entity.unidirectional.Instructor;
+import _13one2one.entity.unidirectional.InstructorDetails;
 
 public class _02UnidirectionalOne2OneFetchTest {
 	public static void main(String[] args) {

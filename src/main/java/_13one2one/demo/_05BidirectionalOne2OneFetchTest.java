@@ -1,14 +1,16 @@
-package mappings.one2one.demo;
+package _13one2one.demo;
+
+import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import mappings.one2one.entity.bidirectional.Instructor;
-import mappings.one2one.entity.bidirectional.InstructorDetails;
+import _13one2one.entity.bidirectional.Instructor;
+import _13one2one.entity.bidirectional.InstructorDetails;
 
-public class _06BidirectionalOne2OneDeleteTest {
+public class _05BidirectionalOne2OneFetchTest {
 	public static void main(String[] args) {
 
 		// Create Sessionfactory
@@ -22,13 +24,16 @@ public class _06BidirectionalOne2OneDeleteTest {
 		try {
 			txn = session.beginTransaction();
 
-			InstructorDetails ins = session.get(InstructorDetails.class, 8);
-
-			session.delete(ins);// this did
+			List<InstructorDetails> instructorDetails = session
+					.createQuery("from InstructorDetails", InstructorDetails.class).list();
 
 			txn.commit();
 
-			System.out.println("Deleted  Success !!");
+			for (InstructorDetails instructor : instructorDetails) {
+				System.out.println(instructor.getInstructor());
+			}
+
+			System.out.println("Fetch Success !!");
 
 		} catch (Exception e) {
 			if (txn != null) {

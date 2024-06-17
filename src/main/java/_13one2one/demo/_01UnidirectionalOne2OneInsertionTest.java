@@ -1,19 +1,19 @@
-package mappings.one2one.demo;
+package _13one2one.demo;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import mappings.one2one.entity.bidirectional.Instructor;
-import mappings.one2one.entity.bidirectional.InstructorDetails;
+import _13one2one.entity.unidirectional.Instructor;
+import _13one2one.entity.unidirectional.InstructorDetails;
 
-public class _04BidirectionalOne2OneInsertionTest {
+public class _01UnidirectionalOne2OneInsertionTest {
 	public static void main(String[] args) {
 
 		// Create Sessionfactory
 
-		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-bidirectional.xml")
+		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-unidirectional.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class).buildSessionFactory();
 
 		// Get the session object
@@ -35,19 +35,17 @@ public class _04BidirectionalOne2OneInsertionTest {
 		 */
 
 		// Create InstructorDetails Object
-		InstructorDetails details = new InstructorDetails(null, "https://www.youtube.com/yamuna",
-				"https://www.linkedIn.com/yamuna", null);
+		InstructorDetails details = new InstructorDetails(null, "https://www.youtube.com/gangadhar",
+				"https://www.linkedIn.com/gangadhar");
 
 		// Create Instructor Object
-		Instructor instructor = new Instructor(null, "Yamuna", "Panda", "yamuna.panda@luv2code.com", details);
-
-		details.setInstructor(instructor);
+		Instructor instructor = new Instructor(null, "Gangadhar", "Panda", "gangadhar.panda@luv2code.com", details);
 
 		Transaction txn = null;
 		try {
 			txn = session.beginTransaction();
 
-			session.persist(details);
+			session.persist(instructor);
 
 			txn.commit();
 

@@ -1,5 +1,7 @@
 package mappings.one2one.demo;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -8,13 +10,13 @@ import org.hibernate.cfg.Configuration;
 import mappings.one2one.entity.unidirectional.Instructor;
 import mappings.one2one.entity.unidirectional.InstructorDetails;
 
-public class UnidirectionalOne2OneDeleteTest {
+public class _02UnidirectionalOne2OneFetchTest {
 	public static void main(String[] args) {
 
 		// Create Sessionfactory
 		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-unidirectional.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class).buildSessionFactory();
-
+		
 		// Get the session object
 		Session session = sfactory.getCurrentSession();
 
@@ -22,20 +24,15 @@ public class UnidirectionalOne2OneDeleteTest {
 		try {
 			txn = session.beginTransaction();
 
-			// fetch one specific instructor where id = 3
-
-			Instructor ins = session.get(Instructor.class, 4);
-
-			session.createQuery("delete from Instructor where id = 4").executeUpdate();// This did not
-			// remove the data from instructor_details table
-			// explicit deletion will not delete
-			// use session.delete
-
-			session.delete(ins);// this did
+			List<Instructor> instructors = session.createQuery("from Instructor", Instructor.class).list();
 
 			txn.commit();
 
-			System.out.println("Deleted everything Success !!");
+			for (Instructor instructor : instructors) {
+				System.out.println(instructor);
+			}
+
+			System.out.println("Fetch Success !!");
 
 		} catch (Exception e) {
 			if (txn != null) {

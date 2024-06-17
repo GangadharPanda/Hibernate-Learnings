@@ -5,14 +5,14 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-import mappings.one2one.entity.bidirectional.Instructor;
-import mappings.one2one.entity.bidirectional.InstructorDetails;
+import mappings.one2one.entity.unidirectional.Instructor;
+import mappings.one2one.entity.unidirectional.InstructorDetails;
 
-public class BidirectionalOne2OneDeleteTest {
+public class _03UnidirectionalOne2OneDeleteTest {
 	public static void main(String[] args) {
 
 		// Create Sessionfactory
-		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-bidirectional.xml")
+		SessionFactory sfactory = new Configuration().configure("hibernate.cfg-one2one-unidirectional.xml")
 				.addAnnotatedClass(Instructor.class).addAnnotatedClass(InstructorDetails.class).buildSessionFactory();
 
 		// Get the session object
@@ -22,13 +22,20 @@ public class BidirectionalOne2OneDeleteTest {
 		try {
 			txn = session.beginTransaction();
 
-			InstructorDetails ins = session.get(InstructorDetails.class, 8);
+			// fetch one specific instructor where id = 3
+
+			Instructor ins = session.get(Instructor.class, 4);
+
+			session.createQuery("delete from Instructor where id = 4").executeUpdate();// This did not
+			// remove the data from instructor_details table
+			// explicit deletion will not delete
+			// use session.delete
 
 			session.delete(ins);// this did
 
 			txn.commit();
 
-			System.out.println("Deleted  Success !!");
+			System.out.println("Deleted everything Success !!");
 
 		} catch (Exception e) {
 			if (txn != null) {

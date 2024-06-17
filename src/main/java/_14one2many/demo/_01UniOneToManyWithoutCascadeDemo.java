@@ -63,8 +63,16 @@ public class _01UniOneToManyWithoutCascadeDemo {
 		 * EAGER strategy.
 		 */
 
+		// Car is @ManyToOne annotation , so it will fetch eagerly
 		System.out.println(car);
+		// Car(id=1, carName=Tata NEXON, buyDate=2024-06-17, employee=Employee(id=1,
+		// name=Gangadhar))
 
+		// Fetch the Employee, respective Cars will not be available
+		Employee employee2 = session.get(Employee.class, 1L);
+		// Employee(id=1, name=Gangadhar)
+
+		System.out.println(employee2);
 		// Commit the transaction
 
 		session.getTransaction().commit();
